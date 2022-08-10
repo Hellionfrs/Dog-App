@@ -3,7 +3,7 @@
     <%= post.title %>
   </h1>
   <h4>
-    posted by <%= post.user.email %>
+    posted by <%= link_to post.user.name, user_path(post.user) %>
   </h4>
   <h6>
     <%= pluralize(post.views, "view")%>
@@ -11,7 +11,5 @@
   <div>
     <%= post.body %>
   </div> 
-    
-  
 
 </div>
