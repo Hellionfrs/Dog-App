@@ -1,15 +1,15 @@
-<div id="<%= dom_id post %>">
-  <h1>
-    <%= post.title %>
-  </h1>
-  <h4>
-    posted by <%= link_to post.user.name, user_path(post.user) %>
-  </h4>
-  <h6>
-    <%= pluralize(post.views, "view")%>
-  </h6>
-  <div>
-    <%= post.body %>
-  </div> 
 
+
+<div class="card" id="<%= dom_id post %>">
+  <div class="card-header">
+    <%= post.title %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">posted by <%= link_to post.user.name, user_path(post.user) %></h5>
+    <h6>
+    <%= pluralize(post.views, "view")%>
+    </h6>
+    <p class="card-text"><%= post.body %></p>
+    
+  </div>
 </div>

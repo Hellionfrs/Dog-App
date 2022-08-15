@@ -1,13 +1,36 @@
 <div class="comment-<%= comment.id %> container"
   style="border: 1px solid black; padding: 1em; margin 1em;">
   <%= comment.user.name %> <br />
-  <span class="text-secondary"> Posted <%= time_ago_in_words(comment.created_at) %></span>
+  
+  <% if (comment.updated_at - comment.created_at) > 1%>
+    <span class="text-secondary">Edited <%= time_ago_in_words(comment.updated_at) %> ago</span>
+  <% else %>
+    <span class="text-secondary"> Posted <%= time_ago_in_words(comment.created_at) %></span>
+  <% end %>
+  <div id="comment-body-<%= comment.id %>">
+    <%= comment.body %>
+  </div>
+  <br/>
   <% if current_user == comment.user %>
-    <div class="button-group float-end">
+    <div class="btn-group float-end">
+      <%= link_to "Edit", nil, remote: true, class:"btn btn-warning", 
+      data:{
+        controller:  "comments",
+        action:  "comments#toggleForm",
+        comments_form_param: "edit-form-#{comment.id}",
+        comments_body_param: "comment-body-#{comment.id}"
+      } %>
       <%= button_to "Delete", [post, comment], class:"btn btn-danger", method: :delete%>
+    </div>
+    <%# creates a edit form with the prev comment as parameter comment: comment %>
+    <div id="edit-form-<%= comment.id %>" class="d-none">
+      <%= render 'comments/form', 
+      post: @post,
+      comment: comment,
+      submit_label: "Update" %>
     </div>
   <% end %>
   <hr />
-  <%= comment.body %>
+  
   
 </div>
