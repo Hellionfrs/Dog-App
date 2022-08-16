@@ -11,21 +11,22 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class:"form-control" %>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class:"form-control"%>
   </div>
 
-  <div>
-    <%= form.label :pics, style: "display: block" %>
-    <%= form.file_field :pics %>
+  <div class="mb-3">
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true, class:"form-control", id:"formFileMultiple"%>
   </div>
 
+  
   <div>
     <%= form.submit %>
   </div>
