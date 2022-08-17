@@ -1,47 +1,49 @@
-<div class="card" id="<%= dom_id post %>">
-  <div class="card-header">
-    <%= post.title %>
-  </div>
-  <div id="carousel-<%= post.id %>" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <% post.images.each do |image| %>
-        <% if image.representable? %>
-          <% if image  ==  post.images.first  %>
-            <div class="carousel-item active">
-              <%= image_tag image, class:"d-block w-100 figure-img img-fluid rounded" %>
-            </div>
-          <% else %>
-            <div class="carousel-item">
-              <%= image_tag image, class:"d-block w-100 figure-img img-fluid rounded" %>
-            </div>
-          <% end%>
 
-        <% else %>%
-          <%= link_to rails_blob_path(image, disposition: "attachment") do %> 
-            <%= image_tag "placeholder.png", alt: "Download file" %> 
-          <% end %> 
-          <% end %>  
-      <% end %>
-      
-      <button class="carousel-control-prev" type="button" data-bs-target="#carousel-<%= post.id %>" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carousel-<%= post.id %>" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+  <br />
+  <div class="card" id="<%= dom_id post %>">
+    <div class="card-header">
+      <%= post.title %>
     </div>
-    
-  </div>
+    <div id="carousel-<%= post.id %>" class="carousel slide" data-bs-ride="carousel">
+      <div    class="carousel-inner">
+        <% post.images.each do |image| %>
+          <% if image.representable? %>
+            <% if image  ==  post.images.first  %>
+              <div class="carousel-item active">
+                <%= image_tag image, class:"d-block w-100 figure-img img-fluid rounded" %>
+              </div>
+            <% else %>
+              <div class="carousel-item">
+                <%= image_tag  image, class:"d-block w-100 figure-img img-fluid rounded" %>
+              </div>
+            <% end%>
 
-  <div class="card-body">
-    <h5 class="card-title">posted by <%= link_to post.user.name, user_path(post.user) %></h5>
-    <h6>
-    <%= pluralize(post.views, "view")%>
-    </h6>
+          <% else %>%
+            <%= link_to rails_blob_path(image, disposition: "attachment") do %> 
+              <%= image_tag "placeholder.png", alt: "Download file" %> 
+            <% end %> 
+            <% end %>  
+        <% end %>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-<%= post.id %>" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel-<%= post.id %>" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      
+    </div>
 
-    <p class="card-text"><%= post.body %></p>
-  </div>
+    <div class="card-body">
+      <h5 class="card-title">posted by <%= link_to post.user.name, user_path(post.user) %></h5>
+      <h6>
+      <%= pluralize(post.views, "view")%>
+      </h6>
+
+      <p class="card-text"><%= post.body %></p>
+    </div>
   
 </div>

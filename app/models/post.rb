@@ -4,4 +4,8 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many  :comments,  dependent: :destroy
   has_many_attached :images
+
+  #Notification config into the Post and set up relationship 
+  has_noticed_notifications model_name: 'Notification'
+  has_many :notifications, through: :user, dependent: :destroy
 end
