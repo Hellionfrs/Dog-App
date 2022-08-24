@@ -1,22 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
+<div class = "container m-auto" id="posts">
 
+  <h1>Posts</h1>
+  <div>
+    <%= link_to "Create new Post!", new_post_path, class:"btn btn-secondary g-4" %>
+  </div>
+  <div class="row">
+    
+    <% @posts.each do |post| %>
+      <div class="col-12 col-md-6 col-lg-4">
+        <%# modifique el partial "posts/post" %>
+        <%= render partial: "posts/post", locals: {post: post, is_square: false} %>
 
-<div class = "container" id="posts">
-
-<h1>Posts</h1>
-
-<%= link_to "Create new Post!", new_post_path, class:"btn btn-secondary" %>
-<br/>
-  <% @posts.each do |post| %>
-  
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post, class:"btn btn-secondary" %>
-    </p>
-  
-  <% end %>
-  
-</div>
+        <%= link_to "Show this post", post, class:"btn btn-secondary" %>
+      </div>
+      
+    <% end %>
+  </div>
+</div>    
 
 

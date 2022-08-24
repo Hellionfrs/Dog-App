@@ -16,6 +16,7 @@ gem "jbuilder"
 gem "stimulus-rails"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'pry', '~> 0.13.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -38,3 +39,5 @@ group :test do
 end
 
 gem "noticed", "~> 1.5"
+
+gem "ransack", "~> 3.2"

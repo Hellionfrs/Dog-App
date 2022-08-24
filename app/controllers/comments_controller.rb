@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action  :authenticate_user!
+  before_action :authenticate_user! 
   before_action :set_post
 
   def create
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to post_url(@post), alert: 'Comment was not updated'}
       end
     end
-   
+  
   end
   def destroy
     @comment = @post.comments.find(params[:id])

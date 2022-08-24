@@ -1,15 +1,14 @@
-
-<div class="container">
-  <%= render @post %>
+<div class="container mx-auto px-5">
+  <%= render partial: "posts/post", locals: {post: @post, is_square: true}%>
   <% if current_user == @post.user%>
-    <div>
-      <%= link_to "Edit this post", edit_post_path(@post) %> |
+    <div class="btn-group float-end">
+      <%= link_to "Edit this post", edit_post_path(@post), class:"btn btn-secondary" %> 
       
-      <%= button_to "Destroy this post", @post, method: :delete %>
+      <%= button_to "Destroy this post", @post, method: :delete, class:"btn btn-danger" %>
     </div>
     
   <% end %>
-  <br />
+  
   <%= link_to "Back to posts", posts_path, class:"btn btn-dark"%>
 
   <br />

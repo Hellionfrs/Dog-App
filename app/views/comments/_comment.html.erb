@@ -1,19 +1,26 @@
-<div class="comment-<%= comment.id %> container"
-  style="border: 1px solid black; padding: 1em; margin 1em;">
-  <%= comment.user.name %> <br />
+<div class="comment-<%= comment.id %> card">
+  <div class="card-header">
+    <div class="float-start">
+      <%= comment.user.name %> <br />
+    </div>
   
-  <% if (comment.updated_at - comment.created_at) > 1%>
-    <span class="text-secondary">Edited <%= time_ago_in_words(comment.updated_at) %> ago</span>
-  <% else %>
-    <span class="text-secondary"> Posted <%= time_ago_in_words(comment.created_at) %></span>
-  <% end %>
+    <div class ="float-end">
+      <% if (comment.updated_at - comment.created_at) > 1%>
+        <span class="text-secondary">Edited <%= time_ago_in_words(comment.updated_at) %> ago</span>
+      <% else %>
+        <span class="text-secondary"> Posted <%= time_ago_in_words(comment.created_at) %></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="card-body">
+  
   <div id="comment-body-<%= comment.id %>">
     <%= comment.body %>
   </div>
   <br/>
   <% if current_user == comment.user %>
     <div class="btn-group float-end">
-      <%= link_to "Edit", nil, remote: true, class:"btn btn-warning", 
+      <%= link_to "Edit", nil, remote: true, class:"btn btn-secondary", 
       data:{
         controller:  "comments",
         action:  "comments#toggleForm",
@@ -34,6 +41,9 @@
     </div>
   <% end %>
   <hr />
+  </div>
+  
+  
   
   
 </div>
