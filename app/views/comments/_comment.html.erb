@@ -1,16 +1,23 @@
 <div class="comment-<%= comment.id %> card">
   <div class="card-header">
-    <div class="float-start">
-      <%= comment.user.name %> <br />
-    </div>
+    <div class="d-flex figure">
+      <div class="align-self-center">
+        <%= image_tag comment.user.avatar_icon, class:" rounded"%>
+      </div>
+      
+      <div class="align-self-center px-1">
+        <%= comment.user.name %> <br />
+      </div>
   
-    <div class ="float-end">
-      <% if (comment.updated_at - comment.created_at) > 1%>
-        <span class="text-secondary">Edited <%= time_ago_in_words(comment.updated_at) %> ago</span>
-      <% else %>
-        <span class="text-secondary"> Posted <%= time_ago_in_words(comment.created_at) %></span>
-      <% end %>
+      <div class ="ms-auto align-self-center ">
+        <% if (comment.updated_at - comment.created_at) > 1%>
+          <span class="text-secondary">Edited <%= time_ago_in_words(comment.updated_at) %> ago</span>
+        <% else %>
+          <span class="text-secondary"> Posted <%= time_ago_in_words(comment.created_at) %></span>
+        <% end %>
+      </div>
     </div>
+    
   </div>
   <div class="card-body">
   

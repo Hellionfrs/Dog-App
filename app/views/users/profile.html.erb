@@ -1,3 +1,42 @@
-<h1><%= @user.name %></h1>
-<h6><%= pluralize(@user.views, "view") %></h6>
-<p>Find me in app/views/users/profile.html.erb</p>
+<div class="container py-5 ">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-8">
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body p-4">
+            <div class="d-md-flex justify-content-center text-black ">
+              <div class="flex-shrink-0 justify-content-center align-self-center m-2 text-center">
+                <%= image_tag  @user.avatar_thumbnail,
+                  style:"width: 195px; border-radius: 10px;"%>
+              </div>
+              <div class="flex-grow-1 m-2 align-content-between flex-wrap">
+                <div class="mb-auto bg-dark text-light rounded-3  ">
+                  <h1 class="mb-1"><%= @user.name.capitalize() %></h1>
+                  <p class="mb-2 pb-1 text-light" style="color: #2b2a2a;">
+                    <%= @user.email %>
+                  </p>
+                </div>
+                <div class="rounded-3 p-2 mb-2" style="background-color: #efefef;">
+                  <p class="mb-0 text-muted">Visitors: <%= pluralize(@user.views, "view") %></p>
+                  <p class="mb-0 text-muted">Posts: <%= @user.posts.count %></p>
+                  <p class="mb-0 text-muted">Comments: <%= @user.comments.count %></p>
+                  <p class="mb-0 text-muted">Account created: <%= @user.created_at %></p>
+                  <p class="mb-0 text-muted">Account updated: <%= @user.updated_at %></p>
+                </div>
+            </div>
+          </div>
+        <div class="d-flex m-2">
+          <% if current_user == @user %>
+          <div class="justify-content-start">
+            <%= link_to "Edit profile", edit_user_registration_path, class:"btn btn-secondary"%>
+          </div>
+          <% end %>
+          <div class="ms-auto">
+            <%= link_to "Back to blog", posts_path, class:"btn btn-primary"%>
+          </div>
+        </div>
+        </div>
+      </div>
+      
+    </div>
+  
+</div>

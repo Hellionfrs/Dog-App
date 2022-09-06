@@ -15,6 +15,7 @@ export default class extends Controller {
     const commentBody = document.getElementById(commentBodyID);
     const editButton = document.getElementById(editButtonID);
 
+    // hide form and commentBody until editButton is press
     form.classList.toggle("d-none");
     form.classList.toggle("mt-5");
     commentBody.classList.toggle("d-none");
