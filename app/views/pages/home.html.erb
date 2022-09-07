@@ -1,8 +1,30 @@
 
-<div class="container py-5">
-  <h1>Welcome to Dog App!</h1>
-  <p>When you can find your dog partner!</p>
+<div class="container py-5 ">
+  <div class="text-center text-justify bg-light border border-secondary rounded p-2">
+    <h1>Welcome to Dog App!</h1>
+    <p>Where you can find your dog partner!</p>
+    <%= link_to "About me", about_path, class:"btn btn-secondary"%>
+    <%= link_to "Blog", posts_path, class:"btn btn-primary"%>
+    <br/>
+  </div>
 
-  <%= link_to "About me", about_path, class:"btn btn-secondary"%>
-  <%= link_to "Blog", posts_path, class:"btn btn-primary"%>
+  <div class="row bg-light border border-secondary rounded p-2 mx-auto my-2">
+
+    <h2 class="text-center">Last Posts!</h2>
+    <% @posts.each do |post|%>
+      <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
+        
+        <%= render partial: "posts/post", locals: {post:post, is_square:false}%>
+        <div class="text-center">
+          <%= link_to "Show this post", post, class:"btn btn-outline-secondary" %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+    <div class="text-center">
+      <%= link_to "See more!", posts_path, class:"btn btn-primary"%>
+    </div>
+  </div>
+    
+
 </div>
