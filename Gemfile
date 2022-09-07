@@ -8,8 +8,8 @@ gem "importmap-rails"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 gem "sprockets-rails"
-gem "sqlite3", "~> 1.4"
-gem 'pg'
+
+
 gem "turbo-rails"
 
 gem "jbuilder"
@@ -28,9 +28,13 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem "sqlite3", "~> 1.4"
   gem "web-console"
 end
-
+group  :production do
+  gem 'pg'
+  gem 'rails_12factor', group: :production
+end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
