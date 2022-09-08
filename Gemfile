@@ -31,7 +31,7 @@ group :development do
   gem "sqlite3", "~> 1.4"
   gem "web-console"
 end
-group  :production do
+group :production do
   gem 'pg'
   gem 'rails_12factor', group: :production
 end
