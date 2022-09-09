@@ -1,5 +1,5 @@
 ### 0. Local Development Enviroment
-#### Video Demo: [<URL HERE>](https://youtu.be/d-FsRWnKc_s)
+#### Video Demo: https://youtu.be/d-FsRWnKc_s
 #### Description:   
 
 In Peru theres is around ~10 M abandoned dogs, in Lima ~ 8M information from a Peruvian's newspaper (Republica,2018).  
